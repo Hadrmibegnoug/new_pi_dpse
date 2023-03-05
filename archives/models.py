@@ -3,9 +3,38 @@
 #   * Rearrange models' order
 #   * Make sure each model has one field with primary_key=True
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
+#   * Remove `managed = True` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+
+
+class etu9(models.Model):
+
+    annee_scolaire = models.CharField(max_length=255)
+    institutions = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'Montants_bource'
+
+
+class Transport(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    pays = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+    nb7 = models.IntegerField()
+    nb8 = models.IntegerField()
+    nb9 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'Transport'
 
 
 class Archives(models.Model):
@@ -32,77 +61,38 @@ class Archives(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+       
         db_table = 'archives'
 
 
-class AuthGroup(models.Model):
-    name = models.CharField(unique=True, max_length=150)
+
+
+
+
+
+
+
+class cand2(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
 
     class Meta:
-        managed = False
-        db_table = 'auth_group'
+       
+        db_table = 'candidats_admin'
 
 
-class AuthGroupPermissions(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
-    permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'auth_group_permissions'
-        unique_together = (('group', 'permission'),)
-
-
-class AuthPermission(models.Model):
-    name = models.CharField(max_length=255)
-    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING)
-    codename = models.CharField(max_length=100)
+class cand1(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    wilaya = models.CharField(max_length=255)
+    effectif = models.IntegerField()
 
     class Meta:
-        managed = False
-        db_table = 'auth_permission'
-        unique_together = (('content_type', 'codename'),)
-
-
-class AuthUser(models.Model):
-    password = models.CharField(max_length=128)
-    last_login = models.DateTimeField(blank=True, null=True)
-    is_superuser = models.IntegerField()
-    username = models.CharField(unique=True, max_length=150)
-    first_name = models.CharField(max_length=150)
-    last_name = models.CharField(max_length=150)
-    email = models.CharField(max_length=254)
-    is_staff = models.IntegerField()
-    is_active = models.IntegerField()
-    date_joined = models.DateTimeField()
-
-    class Meta:
-        managed = False
-        db_table = 'auth_user'
-
-
-class AuthUserGroups(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
-    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'auth_user_groups'
-        unique_together = (('user', 'group'),)
-
-
-class AuthUserUserPermissions(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
-    permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'auth_user_user_permissions'
-        unique_together = (('user', 'permission'),)
+       
+        db_table = 'candidats_effectif'
 
 
 class Cycles(models.Model):
@@ -112,53 +102,262 @@ class Cycles(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+       
         db_table = 'cycles'
 
 
-class DjangoAdminLog(models.Model):
-    action_time = models.DateTimeField()
-    object_id = models.TextField(blank=True, null=True)
-    object_repr = models.CharField(max_length=200)
-    action_flag = models.PositiveSmallIntegerField()
-    change_message = models.TextField()
-    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'django_admin_log'
 
 
-class DjangoContentType(models.Model):
-    app_label = models.CharField(max_length=100)
-    model = models.CharField(max_length=100)
-
-    class Meta:
-        managed = False
-        db_table = 'django_content_type'
-        unique_together = (('app_label', 'model'),)
 
 
-class DjangoMigrations(models.Model):
+
+
+
+
+
+class Headertablemap(models.Model):
     id = models.BigAutoField(primary_key=True)
-    app = models.CharField(max_length=255)
-    name = models.CharField(max_length=255)
-    applied = models.DateTimeField()
+    header = models.TextField()
+    table_name = models.CharField(max_length=255)
 
     class Meta:
-        managed = False
-        db_table = 'django_migrations'
+       
+        db_table = 'headertablemap'
 
-
-class DjangoSession(models.Model):
-    session_key = models.CharField(primary_key=True, max_length=40)
-    session_data = models.TextField()
-    expire_date = models.DateTimeField()
+class etu7(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    domaine = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
 
     class Meta:
-        managed = False
-        db_table = 'django_session'
+       
+        db_table = 'effectifM_d_g'
+
+
+class etu6(models.Model):
+    institutions = models.CharField(max_length=255)
+    annee_scolaire = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+    nb7 = models.IntegerField()
+    nb8 = models.IntegerField()
+    nb9 = models.IntegerField()
+    nb10 = models.IntegerField()
+    nb11 = models.IntegerField()
+    nb12 = models.IntegerField()
+    nb13 = models.IntegerField()
+    nb14 = models.IntegerField()
+    nb15 = models.IntegerField()
+    nb16 = models.IntegerField()
+    nb17 = models.IntegerField()
+    nb18 = models.IntegerField()
+    nb19 = models.IntegerField()
+    nb20 = models.IntegerField()
+    domaine = models.CharField(max_length=255)
+
+    class Meta:
+       
+        db_table = 'effectifM_d_g_n_FM'
+
+
+class EffectifmInstDNG(models.Model):
+    institutions = models.CharField(max_length=255)
+    effectifs = models.IntegerField()
+    genre = models.CharField(max_length=255)
+    niveaux = models.CharField(max_length=255)
+    domaine = models.CharField(max_length=255)
+
+    class Meta:
+       
+        db_table = 'effectifM_inst_d_n_g'
+
+
+class etu2(models.Model):
+    institutions = models.CharField(max_length=255)
+    annee_scolaire = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+    nb7 = models.IntegerField()
+    nb8 = models.IntegerField()
+    nb9 = models.IntegerField()
+    nb10 = models.IntegerField()
+    nb11 = models.IntegerField()
+    nb12 = models.IntegerField()
+    nb13 = models.IntegerField()
+    nb14 = models.IntegerField()
+    nb15 = models.IntegerField()
+    nb16 = models.IntegerField()
+    nb17 = models.IntegerField()
+    nb18 = models.IntegerField()
+    nb19 = models.IntegerField()
+    nb20 = models.IntegerField()
+
+
+    class Meta:
+       
+        db_table = 'effectifM_inst_n_g'
+
+
+class etu5(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+    nb7 = models.IntegerField()
+    nb8 = models.IntegerField()    
+
+    class Meta:
+       
+        db_table = 'effectifM_inst_n_g_ENS'
+
+
+class etu4(models.Model):
+    institutions = models.CharField(max_length=255)
+    annee_scolaire = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+    nb7 = models.IntegerField()
+    nb8 = models.IntegerField()
+    nb9 = models.IntegerField()
+    nb10 = models.IntegerField()
+    nb11 = models.IntegerField()
+    nb12 = models.IntegerField()
+    nb13 = models.IntegerField()
+    nb14 = models.IntegerField()
+    nb15 = models.IntegerField()
+    nb16 = models.IntegerField()
+
+
+    class Meta:
+       
+        db_table = 'effectifM_inst_n_g_ESP_NV'
+
+
+class etu3(models.Model):
+    institutions = models.CharField(max_length=255)
+    annee_scolaire = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+    nb7 = models.IntegerField()
+    nb8 = models.IntegerField()
+    nb9 = models.IntegerField()
+    nb10 = models.IntegerField()
+    nb11 = models.IntegerField()
+    nb12 = models.IntegerField()
+    nb13 = models.IntegerField()
+    nb14 = models.IntegerField()
+    nb15 = models.IntegerField()
+    nb16 = models.IntegerField()
+    nb17 = models.IntegerField()
+    nb18 = models.IntegerField()
+    nb19 = models.IntegerField()
+    nb20 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'effectifM_inst_n_g_FM'
+
+
+class etu1(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    etablissements = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'effectif_etb_g_m_et'
+
+
+class ensg4(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    etablissements = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+    nb7 = models.IntegerField()
+    nb8 = models.IntegerField()
+    nb9 = models.IntegerField()
+    nb10 = models.IntegerField()
+    nb11 = models.IntegerField()
+    nb12 = models.IntegerField()
+    nb13 = models.IntegerField()
+    nb14 = models.IntegerField()
+    nb15 = models.IntegerField()
+    nb15 = models.IntegerField()
+    nb16 = models.IntegerField()
+    nb17 = models.IntegerField()
+    nb18 = models.IntegerField()
+    nb19 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'ensg_perm_di_g_etb'
+
+
+class ensg5(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    domaine = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'ensg_perm_do_g_etb'
+
+
+class ensg6(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    institutions = models.CharField(max_length=255)
+    domaine = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+    nb7 = models.IntegerField()
+    nb8 = models.IntegerField()
+    nb9 = models.IntegerField()
+    nb10 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'ensg_perm_inst_do_di'
+
+
+class ensg2(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    tranche_age = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'ensg_perm_trage'
 
 
 class Etablissements(models.Model):
@@ -175,7 +374,7 @@ class Etablissements(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+       
         db_table = 'etablissements'
 
 
@@ -191,8 +390,59 @@ class Etudiants(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+       
         db_table = 'etudiants'
+
+
+class bour3(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    pays = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'etudiantsMetg_bourses_equipements'
+
+
+class bour2(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    pays = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+    nb7 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'etudiants_boursiers_etg_cyc_pa'
+
+
+class bour1(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    genre = models.CharField(max_length=255)
+    niveaux = models.CharField(max_length=255)
+    ALGERIE = models.IntegerField(blank=True, null=True)
+    ALLEMAGNE = models.IntegerField(blank=True, null=True)
+    CANADA = models.IntegerField(blank=True, null=True)
+    COTE_D_IVOIRE = models.IntegerField(blank=True, null=True)
+    EGYPTE = models.IntegerField(blank=True, null=True)
+    FRANCE = models.IntegerField(blank=True, null=True)
+    MALI = models.IntegerField(blank=True, null=True)
+    MAROC = models.IntegerField(blank=True, null=True)
+    SENEGAL = models.IntegerField(blank=True, null=True)
+    TUNISIE = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+       
+        db_table = 'etudiants_boursiers_etg_n_g_pa'
 
 
 class FailedJobs(models.Model):
@@ -205,7 +455,7 @@ class FailedJobs(models.Model):
     failed_at = models.DateTimeField()
 
     class Meta:
-        managed = False
+       
         db_table = 'failed_jobs'
 
 
@@ -230,7 +480,7 @@ class Inscrire(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+       
         db_table = 'inscrire'
 
 
@@ -239,7 +489,7 @@ class Migrations(models.Model):
     batch = models.IntegerField()
 
     class Meta:
-        managed = False
+       
         db_table = 'migrations'
 
 
@@ -249,7 +499,7 @@ class PasswordResetTokens(models.Model):
     created_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+       
         db_table = 'password_reset_tokens'
 
 
@@ -259,7 +509,7 @@ class PasswordResets(models.Model):
     created_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+       
         db_table = 'password_resets'
 
 
@@ -276,8 +526,122 @@ class PersonalAccessTokens(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+       
         db_table = 'personal_access_tokens'
+
+
+class etu8(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    institutions = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+\
+    class Meta:
+       
+        db_table = 'repartition_bourc_benf'
+
+
+class ensg1(models.Model):
+    etablissements = models.IntegerField()
+    annee_scolaire = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    
+    class Meta:
+       
+        db_table = 'repartition_ensg_etb'
+
+
+class ensg3(models.Model):
+    annee_scolaire = models.CharField(max_length=255) 
+    etablissements = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+    nb7 = models.IntegerField()
+    class Meta:
+       
+        db_table = 'repartition_ensg_grade'
+
+
+class cand4(models.Model):
+    filiere = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'repartition_or_etg'
+
+
+class cnou(models.Model):
+    annee_scolaire =models.CharField(max_length=255)
+    fonction = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'repartition_pers_cnou'
+
+
+class sort1(models.Model):
+    institutions = models.CharField(max_length=255)
+    annee_scolaire = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+    nb7 = models.IntegerField()
+    nb8 = models.IntegerField()
+    nb9 = models.IntegerField()
+    nb10 = models.IntegerField()
+    nb11 = models.IntegerField()
+    nb12 = models.IntegerField()
+    nb13 = models.IntegerField()
+    nb14 = models.IntegerField()
+    nb15 = models.IntegerField()
+    nb15 = models.IntegerField()
+    nb16 = models.IntegerField()
+  
+
+    class Meta:
+       
+        db_table = 'sortants_d_i_g'
+
+
+class sort2(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    domaine_specilise = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    
+    class Meta:
+       
+        db_table = 'sortants_dsp'
+
+
+class cand3(models.Model):
+    annee_scolaire = models.CharField(max_length=255)
+    serie = models.CharField(max_length=255)
+    nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
+    nb3 = models.IntegerField()
+    nb4 = models.IntegerField()
+    nb5 = models.IntegerField()
+    nb6 = models.IntegerField()
+    nb7 = models.IntegerField()
+    nb8 = models.IntegerField()
+
+    class Meta:
+       
+        db_table = 'taux_reuss'
 
 
 class TbArchives(models.Model):
@@ -288,7 +652,7 @@ class TbArchives(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+       
         db_table = 'tb_archives'
 
 
@@ -306,5 +670,5 @@ class Users(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+       
         db_table = 'users'
