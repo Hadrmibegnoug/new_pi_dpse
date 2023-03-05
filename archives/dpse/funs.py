@@ -1,5 +1,5 @@
-import pandas as pd 
-from models import cand1,cand2,cand3,cand4
+# import pandas as pd 
+from models import *
 
 def cand(sheet_df,year,code):
    
