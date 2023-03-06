@@ -8,11 +8,21 @@ from .forms import UploadFileForm
 from .funs import *
 def say_hi(request):
     template = loader.get_template('helo.html')
-    etudiat_data={"etu1":cand1.objects.all().values(),"etu2":etu2.objects.all().values(),
+    etudiat_data={"etu1":etu1.objects.all().values(),"etu2":etu2.objects.all().values(),
                   "etu3":etu3.objects.all().values(),"etu4":etu4.objects.all().values(),
                   "etu5":etu5.objects.all().values(),"etu6":etu6.objects.all().values(),
                   "etu7":etu7.objects.all().values(),"etu8":etu8.objects.all().values(),
-                  "etu9":etu9.objects.all().values()}
+                  "etu9":etu9.objects.all().values(),"cand1":cand1.objects.all().values(),
+                  "cand2":cand2.objects.all().values(),"cand3":cand3.objects.all().values(),
+                  "cand4":cand4.objects.all().values(),"ensg1":ensg1.objects.all().values(),
+                  "ensg2":ensg2.objects.all().values(),"ensg3":ensg3.objects.all().values(),
+                  "ensg4":ensg4.objects.all().values(),"ensg5":ensg5.objects.all().values(),
+                  "ensg6":ensg6.objects.all().values(),"bours1":bour1.objects.all().values(),
+                  "bours2":bour2.objects.all().values(),"bours3":bour3.objects.all().values(),
+                  "transport":Transport.objects.all().values(),"EffectifmInstDNG":EffectifmInstDNG.objects.all().values(),
+                  "Etablissements":Etablissements.objects.all().values(),"Etudiants":Etudiants.objects.all().values(),
+                  "cnou":cnou.objects.all().values(),"sort1":sort1.objects.all().values(),"sort2":sort2.objects.all().values(),
+                  "Archives":Archives.objects.all().values()}
     print(etudiat_data)
     return HttpResponse(template.render(etudiat_data,request))
 
