@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Header Table Map</title>
+</head>
+<body>
+    <h1>Header Table Map</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Header</th>
+                <th>Table</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for map in header_table_map %}
+            <tr>
+                <td>{{ map.header }}</td>
+                <td>{{ map.table_name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
