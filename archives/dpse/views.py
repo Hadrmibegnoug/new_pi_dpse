@@ -2,20 +2,19 @@ from io import BytesIO
 from django.template import loader
 from django.http import HttpResponse
 import pandas as pd
-from .models import Headertablemap,etu1,etu2,etu3,etu4,etu5,etu6,etu7,etu8,etu9
+from .models import *
 from django.shortcuts import render
 from .forms import UploadFileForm
 from .funs import *
-def index(request):
+def say_hi(request):
     template = loader.get_template('helo.html')
-    etudiat_data={"etu1":etu1.objects.all().values(),"etu2":etu2.objects.all().values(),
+    etudiat_data={"etu1":cand1.objects.all().values(),"etu2":etu2.objects.all().values(),
                   "etu3":etu3.objects.all().values(),"etu4":etu4.objects.all().values(),
                   "etu5":etu5.objects.all().values(),"etu6":etu6.objects.all().values(),
                   "etu7":etu7.objects.all().values(),"etu8":etu8.objects.all().values(),
                   "etu9":etu9.objects.all().values()}
+    print(etudiat_data)
     return HttpResponse(template.render(etudiat_data,request))
-def say_hi(request):
-    return render(request,'helo.html')
 
 def upload_file(request):
 
