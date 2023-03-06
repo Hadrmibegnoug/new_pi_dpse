@@ -1,5 +1,5 @@
 # import pandas as pd 
-from models import *
+from .models import *
 
 def cand(sheet_df,year,code):
    

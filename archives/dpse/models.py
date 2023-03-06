@@ -15,7 +15,7 @@ class etu9(models.Model):
     nb1 = models.IntegerField()
 
     class Meta:
-       
+        app_label = 'dpse'
         db_table = 'Montants_bource'
 
 
@@ -33,6 +33,7 @@ class Transport(models.Model):
     nb9 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'Transport'
 
@@ -61,7 +62,7 @@ class Archives(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-       
+        app_label = 'dpse'
         db_table = 'archives'
 
 
@@ -81,6 +82,7 @@ class cand2(models.Model):
     nb5 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'candidats_admin'
 
@@ -91,6 +93,7 @@ class cand1(models.Model):
     effectif = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'candidats_effectif'
 
@@ -102,6 +105,7 @@ class Cycles(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'cycles'
 
@@ -121,6 +125,7 @@ class Headertablemap(models.Model):
     table_name = models.CharField(max_length=255)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'headertablemap'
 
@@ -131,6 +136,7 @@ class etu7(models.Model):
     nb2 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'effectifM_d_g'
 
@@ -161,6 +167,7 @@ class etu6(models.Model):
     domaine = models.CharField(max_length=255)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'effectifM_d_g_n_FM'
 
@@ -173,6 +180,7 @@ class EffectifmInstDNG(models.Model):
     domaine = models.CharField(max_length=255)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'effectifM_inst_d_n_g'
 
@@ -203,6 +211,7 @@ class etu2(models.Model):
 
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'effectifM_inst_n_g'
 
@@ -219,6 +228,7 @@ class etu5(models.Model):
     nb8 = models.IntegerField()    
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'effectifM_inst_n_g_ENS'
 
@@ -245,6 +255,7 @@ class etu4(models.Model):
 
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'effectifM_inst_n_g_ESP_NV'
 
@@ -274,6 +285,7 @@ class etu3(models.Model):
     nb20 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'effectifM_inst_n_g_FM'
 
@@ -287,6 +299,7 @@ class etu1(models.Model):
     nb4 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'effectif_etb_g_m_et'
 
@@ -316,6 +329,7 @@ class ensg4(models.Model):
     nb19 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'ensg_perm_di_g_etb'
 
@@ -326,6 +340,7 @@ class ensg5(models.Model):
     nb1 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'ensg_perm_do_g_etb'
 
@@ -346,6 +361,7 @@ class ensg6(models.Model):
     nb10 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'ensg_perm_inst_do_di'
 
@@ -356,6 +372,7 @@ class ensg2(models.Model):
     nb1 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'ensg_perm_trage'
 
@@ -374,6 +391,7 @@ class Etablissements(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'etablissements'
 
@@ -390,6 +408,7 @@ class Etudiants(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'etudiants'
 
@@ -405,6 +424,7 @@ class bour3(models.Model):
     nb6 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'etudiantsMetg_bourses_equipements'
 
@@ -421,6 +441,7 @@ class bour2(models.Model):
     nb7 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'etudiants_boursiers_etg_cyc_pa'
 
@@ -441,6 +462,7 @@ class bour1(models.Model):
     TUNISIE = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'etudiants_boursiers_etg_n_g_pa'
 
@@ -455,6 +477,7 @@ class FailedJobs(models.Model):
     failed_at = models.DateTimeField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'failed_jobs'
 
@@ -480,6 +503,7 @@ class Inscrire(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'inscrire'
 
@@ -489,6 +513,7 @@ class Migrations(models.Model):
     batch = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'migrations'
 
@@ -499,6 +524,7 @@ class PasswordResetTokens(models.Model):
     created_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'password_reset_tokens'
 
@@ -509,6 +535,7 @@ class PasswordResets(models.Model):
     created_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'password_resets'
 
@@ -526,6 +553,7 @@ class PersonalAccessTokens(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'personal_access_tokens'
 
@@ -537,6 +565,7 @@ class etu8(models.Model):
     nb2 = models.IntegerField()
 \
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'repartition_bourc_benf'
 
@@ -547,6 +576,7 @@ class ensg1(models.Model):
     nb1 = models.IntegerField()
     
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'repartition_ensg_etb'
 
@@ -562,6 +592,7 @@ class ensg3(models.Model):
     nb6 = models.IntegerField()
     nb7 = models.IntegerField()
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'repartition_ensg_grade'
 
@@ -575,6 +606,7 @@ class cand4(models.Model):
     nb5 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'repartition_or_etg'
 
@@ -586,6 +618,7 @@ class cnou(models.Model):
     nb2 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'repartition_pers_cnou'
 
@@ -613,6 +646,7 @@ class sort1(models.Model):
   
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'sortants_d_i_g'
 
@@ -623,6 +657,7 @@ class sort2(models.Model):
     nb1 = models.IntegerField()
     
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'sortants_dsp'
 
@@ -640,6 +675,7 @@ class cand3(models.Model):
     nb8 = models.IntegerField()
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'taux_reuss'
 
@@ -652,6 +688,7 @@ class TbArchives(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'tb_archives'
 
@@ -670,5 +707,6 @@ class Users(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        app_label = 'dpse'
        
         db_table = 'users'

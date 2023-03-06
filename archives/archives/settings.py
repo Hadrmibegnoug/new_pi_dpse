@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dpse',
+    'dpse.apps.DpseConfig',
 ]
 
 MIDDLEWARE = [
@@ -75,9 +75,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pi',
         'USER': 'root',
-        'PASSWORD': '1234',
+        'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '3000',
+        'PORT': '3306',
     }
 }
 
