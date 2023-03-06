@@ -8,16 +8,11 @@ from .forms import UploadFileForm
 from .funs import *
 def index(request):
     template = loader.get_template('helo.html')
-    e1=etu1.objects.all().values()
-    e2=etu2.objects.all().values()
-    e3=etu3.objects.all().values()
-    e4=etu4.objects.all().values()
-    e5=etu5.objects.all().values()
-    e6=etu6.objects.all().values()
-    e7=etu7.objects.all().values()
-    e8=etu8.objects.all().values()
-    e9=etu9.objects.all().values()
-    etudiat_data={"etu1":e1,"etu2":e2,"etu3":e3,"etu4":e4,"etu5":e5,"etu6":e6,"etu7":e7,"etu8":e8,"etu9":e9}
+    etudiat_data={"etu1":etu1.objects.all().values(),"etu2":etu2.objects.all().values(),
+                  "etu3":etu3.objects.all().values(),"etu4":etu4.objects.all().values(),
+                  "etu5":etu5.objects.all().values(),"etu6":etu6.objects.all().values(),
+                  "etu7":etu7.objects.all().values(),"etu8":etu8.objects.all().values(),
+                  "etu9":etu9.objects.all().values()}
     return HttpResponse(template.render(etudiat_data,request))
 def say_hi(request):
     return render(request,'helo.html')
