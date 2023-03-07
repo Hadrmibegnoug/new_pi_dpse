@@ -67,6 +67,54 @@ def cand(sheet_df,year,code):
         raise ValueError(f"Unknown sheet type: {code}")
 
 
+
+def sort(sheet_df, year, code):
+    sheet_df=replace_nan_with_zero(sheet_df)
+   
+    # Check the type of sheet based on the sheet name
+    if code == "sort1":
+         for _, row in sheet_df.iterrows():
+            # Skip the first row since it contains the sheet name and year
+            if row.name == 0:
+                institutions = row[0]
+                continue
+            institutions = row[1]
+            nb1   = row[2]
+            nb2   = row[3]
+            nb3   = row[4]
+            nb4   = row[5]
+            nb5   = row[6]
+            nb6   = row[7]
+            nb7   = row[8]
+            nb8   = row[9]
+            nb9   = row[10]
+            nb10  = row[11]
+            nb11  = row[12]
+            nb12  = row[13]
+            nb13  = row[14]
+            nb14  = row[15]
+            nb15  = row[16]
+            nb16  = row[17]
+            sort_obj = sort1(annee_scolaire=year,institutions=institutions, nb1=nb1, nb2=nb2, nb3=nb3, nb4=nb4, nb5=nb5, nb6=nb6, nb7=nb7, nb8=nb8, nb9=nb9, nb10=nb10, nb11=nb11, nb12=nb12, nb13=nb13, nb14=nb14, nb15=nb15, nb16=nb16)
+            sort_obj.save()
+    elif code == "sort2":
+        # Insert data into cand4 table
+        for _, row in sheet_df.iterrows():
+            # Skip the first row since it contains the sheet name and year
+            if row.name == 0:
+                continue
+            domaine_specilise = row[0]
+            nb1 = row[1]
+            nb2 = row[2]
+            sort_obj2 = sort2(domaine_specilise=domaine_specilise, nb1=nb1,nb2=nb2)
+            sort_obj2.save()
+    else:
+        raise ValueError(f"Unknown sheet type: {code}")
+           
+
+            
+
+
 def ensg(sheet_df, year, code):
     sheet_df=replace_nan_with_zero(sheet_df)
     # Check the type of sheet based on the sheet name
@@ -141,6 +189,8 @@ def ensg(sheet_df, year, code):
 
     else:
         raise ValueError(f"Unknown sheet type: {code}")
+
+
 
 
 def replace_nan_with_zero(df):

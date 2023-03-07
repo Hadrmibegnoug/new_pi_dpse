@@ -621,6 +621,7 @@ class sort2(models.Model):
     annee_scolaire = models.CharField(max_length=255)
     domaine_specilise = models.CharField(max_length=255)
     nb1 = models.IntegerField()
+    nb2 = models.IntegerField()
     
     class Meta:
         app_label='dpse'
