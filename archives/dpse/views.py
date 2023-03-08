@@ -6,25 +6,48 @@ from .models import *
 from django.shortcuts import render
 from .forms import UploadFileForm
 from .funs import *
+import json
+from django.core import serializers
 def say_hi(request):
     template = loader.get_template('helo.html')
-    etudiat_data={"etu1":etu1.objects.all().values(),"etu2":etu2.objects.all().values(),
-                  "etu3":etu3.objects.all().values(),"etu4":etu4.objects.all().values(),
-                  "etu5":etu5.objects.all().values(),"etu6":etu6.objects.all().values(),
-                  "etu7":etu7.objects.all().values(),"etu8":etu8.objects.all().values(),
-                  "etu9":etu9.objects.all().values(),"cand1":cand1.objects.all().values(),
-                  "cand2":cand2.objects.all().values(),"cand3":cand3.objects.all().values(),
-                  "cand4":cand4.objects.all().values(),"ensg1":ensg1.objects.all().values(),
-                  "ensg2":ensg2.objects.all().values(),"ensg3":ensg3.objects.all().values(),
-                  "ensg4":ensg4.objects.all().values(),"ensg5":ensg5.objects.all().values(),
-                  "ensg6":ensg6.objects.all().values(),"bours1":bour1.objects.all().values(),
-                  "bours2":bour2.objects.all().values(),"bours3":bour3.objects.all().values(),
-                  "transport":Transport.objects.all().values(),"EffectifmInstDNG":EffectifmInstDNG.objects.all().values(),
-                  "Etablissements":Etablissements.objects.all().values(),"Etudiants":Etudiants.objects.all().values(),
-                  "cnou":cnou.objects.all().values(),"sort1":sort1.objects.all().values(),"sort2":sort2.objects.all().values(),
-                  "Archives":Archives.objects.all().values()}
+    etudiat_data = {
+                        "etu1": list(etu1.objects.all().values()),
+                        "etu2": list(etu2.objects.all().values()),
+                        "etu3": list(etu3.objects.all().values()),
+                        "etu4": list(etu4.objects.all().values()),
+                        "etu5": list(etu5.objects.all().values()),
+                        "etu6": list(etu6.objects.all().values()),
+                        "etu7": list(etu7.objects.all().values()),
+                        "etu8": list(etu8.objects.all().values()),
+                        "etu9": list(etu9.objects.all().values()),
+                        "cand1": list(cand1.objects.all().values()),
+                        "cand2": list(cand2.objects.all().values()),
+                        "cand3": list(cand3.objects.all().values()),
+                        "cand4": list(cand4.objects.all().values()),
+                        "ensg1": list(ensg1.objects.all().values()),
+                        "ensg2": list(ensg2.objects.all().values()),
+                        "ensg3": list(ensg3.objects.all().values()),
+                        "ensg4": list(ensg4.objects.all().values()),
+                        "ensg5": list(ensg5.objects.all().values()),
+                        "ensg6": list(ensg6.objects.all().values()),
+                        "bours1": list(bour1.objects.all().values()),
+                        "bours2": list(bour2.objects.all().values()),
+                        "bours3": list(bour3.objects.all().values()),
+                        "transport": list(Transport.objects.all().values()),
+                        "EffectifmInstDNG": list(EffectifmInstDNG.objects.all().values()),
+                        "Etablissements": list(Etablissements.objects.all().values()),
+                        "Etudiants": list(Etudiants.objects.all().values()),
+                        # "Cnou":list(Cnou.objects.all().values()),
+                        "sort1": list(sort1.objects.all().values()),
+                        "sort2": list(sort2.objects.all().values()),
+                        "Archives": list(Archives.objects.all().values())
+                    }
+    
+    
     print(etudiat_data)
-    return HttpResponse(template.render(etudiat_data,request))
+    etudiat_data_json = json.dumps(etudiat_data)
+    context = {'etudiat_data_json': etudiat_data_json}
+    return HttpResponse(template.render(context,request))
 
 def upload_file(request):
 
@@ -34,7 +57,8 @@ def upload_file(request):
         file_contents = uploaded_file.read()
 
         # Get the sheet names and their corresponding DataFrames
-        excel_data = pd.read_excel(BytesIO(file_contents), sheet_name=None)
+        # excel_data = pd.read_excel(BytesIO(file_contents), sheet_name=None)
+        excel_data = pd.read_excel(BytesIO(file_contents), sheet_name=None, engine='xlrd')
 
         # Get the sheet name and table name from the first sheet
         first_sheet_df = pd.read_excel(BytesIO(file_contents), sheet_name=list(excel_data.keys())[0], header=None)
@@ -99,6 +123,11 @@ def insert(request):
                 cand(sheet_df,request.POST['year'],value)
             if "ensg" in value:
                 ensg(sheet_df,request.POST['year'],value)
+            if "sort" in value:
+                sort(sheet_df,request.POST['year'],value)
+            # if "Cnou" in value:
+            #     sort(sheet_df,request.POST['year'],value)
+            
 
             
 

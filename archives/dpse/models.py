@@ -579,7 +579,7 @@ class cand4(models.Model):
         db_table = 'repartition_or_etg'
 
 
-class cnou(models.Model):
+class Cnou(models.Model):
     annee_scolaire =models.CharField(max_length=255)
     fonction = models.CharField(max_length=255)
     nb1 = models.IntegerField()

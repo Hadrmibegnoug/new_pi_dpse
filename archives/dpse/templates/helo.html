@@ -24,8 +24,9 @@
             <!-- ========== Left Sidebar Start ========== -->
             <div class="leftside-menu">
 
-
-
+<h1>
+   
+</h1>
                 <!-- LOGO -->
                 <a href="index.html" class="logo text-center logo-dark">
                     <span class="logo-lg">
@@ -44,7 +45,6 @@
                     <ul class="side-nav">
 
                         <li class="side-nav-title side-nav-item">Navigation</li>
-
 
 
 
@@ -251,63 +251,80 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                <div class="col-lg-10">
-                                <select class="select2 form-control select2-multiple" data-toggle="select2" multiple="multiple" data-placeholder="Choose ...">
+                                <div class="col-lg-9">
+                                    <select id="my-select" class="select2 form-control select2-multiple"
+                                    data-toggle="select2" multiple="multiple" data-placeholder="Choose ...">
                                     <optgroup label="Candidats">
-                                        <option value="AK">Effectifs des candidats au bac par wilaya</option>
-                                        <option value="HI">Taux de réussite par genre et par série</option>
+                                        <option value="ef_e_w">Effectifs des candidats au bac par wilaya</option>
+                                        <option value="tr_s_g">Taux de réussite par genre et par série</option>
                                         <!-- <option value="HI">Taux de réussite par genre et par série</option> -->
-                                        <option value="HI">Taux de réussite par session et par type de candidature</option>
-                                        <option value="HI">Répartition des orientés à l’étranger par pays et par filière</option>
+                                        <option value="tr_s_c">Taux de réussite par session et par type de
+                                            candidature</option>
+                                        <option value="r_e_p_p">Répartition des orientés à l’étranger par pays et
+                                            par filière</option>
                                     </optgroup>
                                     <optgroup label="Etudiuants">
 
-                                        <option value="CA">Effectifs par établissement et par genre, mauritaniens et étrangers</option>
-                                        <option value="NV">Effectifs des étudiants mauritaniens par institution, par niveau et par genre (LMD)</option>
-                                        <option value="NV">Effectifs des étudiants mauritaniens par institution, par niveau et par genre (FM)</option>
-                                        <option value="NV">Effectifs des étudiants mauritaniens par institution, par niveau et par genre (ESP & AN)</option>
-                                        <option value="NV">Effectifs des étudiants mauritaniens par institution,  par niveau et par genre (ENS)</option>
-                                        <option value="NV">Effectifs des étudiants mauritaniens par institution, par domaine d'étude par niveau et par genre (FM)</option>
-                                        <option value="NV">Effectifs des étudiants par domaine d'étude et par genre</option>
+                                        <option value="CA">Effectifs par établissement et par genre, mauritaniens et
+                                            étrangers</option>
+                                        <option value="ef_m_i_lmd">Effectifs des étudiants mauritaniens par
+                                            institution, par niveau et par genre (LMD)</option>
+                                        <option value="NV4">Effectifs des étudiants mauritaniens par institution,
+                                            par niveau et par genre (FM)</option>
+                                        <option value="NV5">Effectifs des étudiants mauritaniens par institution,
+                                            par niveau et par genre (ESP & AN)</option>
+                                        <option value="NV6">Effectifs des étudiants mauritaniens par institution,
+                                            par niveau et par genre (ENS)</option>
+                                        <option value="NV7">Effectifs des étudiants mauritaniens par institution,
+                                            par domaine d'étude par niveau et par genre (FM)</option>
+                                        <option value="NV8">Effectifs des étudiants par domaine d'étude et par genre
+                                        </option>
                                     </optgroup>
                                     <optgroup label="Bources">
-                                        <option value="AZ">Répartition des Boursiers et Bénéficiaires d'aides par Institution</option>
-                                        <option value="CO">Montants de Bourse (MRU)</option>
+                                        <option value="AZ">Répartition des Boursiers et Bénéficiaires d'aides par
+                                            Institution</option>
+                                        <option value="CO8">Montants de Bourse (MRU)</option>
                                     </optgroup>
                                     <optgroup label="Sortants">
-                                        <option value="AZ" id="sortants_option">Sortants <span></span> <p></p> par diplôme, par institution et par genre</option>
-                                        <option value="CO">Sortants <span id="sort_yeahr"></span> par domaine d'étude spécialisé (CITE 2013)</option>
+                                        <option value="AZ7" id="sortants_option">Sortants <span></span>
+                                            <p></p> par diplôme, par institution et par genre
+                                        </option>
+                                        <option value="CO">Sortants <span id="sort_yeahr"></span> par domaine
+                                            d'étude spécialisé (CITE 2013)</option>
                                     </optgroup>
                                     <optgroup label="Les gens bourciers">
-                                        <option value="AZ">Etudiants mauritaniens boursiers à l'étranger par niveau, par genre et par pays d'accueil</option>
-                                        <option value="CO">Etudiants mauritaniens boursiers à l'étranger par cycle et par pays d'accueil	</option>
+                                        <option value="A76Z">Etudiants mauritaniens boursiers à l'étranger par
+                                            niveau, par genre et par pays d'accueil</option>
+                                        <option value="CO12">Etudiants mauritaniens boursiers à l'étranger par cycle
+                                            et par pays d'accueil </option>
                                     </optgroup>
 
                                 </select>
                              </div>
-                             <div class="col-lg-1">
+                             <div class="col-lg-2">
                                 <div class="btn-group">
-                                    <button type="button" id="year_select" class="btn btn-primary   dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Year
+                                    <button type="button"  id="year_select2" class="btn btn-primary   dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        2021-2022
                                     </button>
                                     <div class="dropdown-menu">
                                         <!-- <div class="card"> -->
                                         <div class="card-body">
                                         <div class="form-check">
-                                            <input type="radio" value="2018" id="customRadio1" name="customRadio4" class="form-check-input">
-                                            <label class="form-check-label"  for="customRadio1"><b>2018</b> </label>
+                                            <input type="radio" id="customRadio2" name="customRadio2" value="2019-2020" class="form-check-input">
+                                            <label class="form-check-label" for="customRadio2"><b>2019-2020</b> </label>
                                         </div>
                                         <div class="form-check">
-                                            <input type="radio" value="2019" id="customRadio1" name="customRadio4" class="form-check-input">
-                                            <label class="form-check-label" for="customRadio1"><b>2019</b></label>
+                                            <input type="radio" id="customRadio2" name="customRadio2" value="2020-2021" class="form-check-input">
+                                            <label class="form-check-label" for="customRadio2"><b>2020-2021</b></label>
                                         </div>
                                         <div class="form-check">
-                                            <input type="radio" value="2020" id="customRadio1" name="customRadio4" class="form-check-input">
-                                            <label class="form-check-label" for="customRadio1"><b>2020</b></label>
+                                            <input type="radio" id="customRadio2" name="customRadio2" value="2021-2022" class="form-check-input" checked>
+                                            <label class="form-check-label" for="customRadio2"><b>2021-2022</b></label>
                                         </div>
                                         </div></div>
                                     </div>
                             </div>
+
                             <div class="col-lg-1">
                                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#right-modal">Import</button>
                                 <!-- <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#right-modal">Rightbar Modal</button> -->
@@ -319,13 +336,13 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                         <h4>here u r ganna choose ur  file</h4>  <br><br>
+                                              <h4>here u r ganna choose ur  file</h4>  <br><br>
 
                                                                     <div class="row">
                                                                          <!-- end uplod -->
                                                                          <div class="col-6">
                                                                     <div class="btn-group">
-                                                                        <button type="button" id="year_select2" class="btn btn-primary   dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" id="year_select" class="btn btn-primary   dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Year
                                                                         </button>
                                                                         <div class="dropdown-menu">
@@ -340,14 +357,15 @@
                                                                                 <label class="form-check-label" for="customRadio1"><b>2019</b></label>
                                                                             </div>
                                                                             <div class="form-check">
-                                                                                <input type="radio" id="customRadio1" name="customRadio" value="2020" class="form-check-input">
+                                                                                <input type="radio" id="customRadio1" name="customRadio" value="2020" class="form-check-input" >
                                                                                 <label class="form-check-label" for="customRadio1"><b>2020</b></label>
                                                                             </div>
-                                                                            </div></div>
+                                                                            </div>
+                                                                        </div>
                                                                         </div>
                                                                         </div>
                                                                     </div>
-<br> <br>
+                                                                    <br> <br>
                                                                         <div class="row">
                                                                             <div class="col-lg-12">
                                                                             <form action="/up" method="post"  enctype="multipart/form-data">
@@ -355,14 +373,10 @@
 
                                                                                 <div class="fallback">
                                                                                     <input name="file" id="fileInput" type="file"  />
-                                                                                    <input type="text" name="year" value="2021-2022">
+                                                                                    <input type="hidden" name="year" value="2021-2022">
                                                                                 </div>
 
-                                                                                <!-- <div class="dz-message needsclick">
-                                                                                    <i class="h1 text-muted dripicons-cloud-upload"></i>
-                                                                                    <h3>Drop files here or click to upload </h3>
-
-                                                                                </div> -->
+                                                                                
                                                                                 <div class="d-grid">
                                                                                     <br><br>
 
@@ -371,41 +385,10 @@
 
                                                                             </form>
 
-                                                                            <!-- Preview -->
-                                                                            <!-- <div class="dropzone-previews mt-3" id="file-previews"></div> -->
-
-                                                                            <!-- file preview template -->
-                                                                            <!-- <div class="d-none" id="uploadPreviewTemplate">
-                                                                                <div class="card mt-1 mb-0 shadow-none border">
-                                                                                    <div class="p-2">
-                                                                                        <div class="row align-items-center">
-                                                                                            <div class="col-auto">
-                                                                                                <img data-dz-thumbnail src="#" class="avatar-sm rounded bg-light" alt="">
-                                                                                            </div>
-                                                                                            <div class="col ps-0">
-                                                                                                <a href="javascript:void(0);" class="text-muted fw-bold" data-dz-name></a>
-                                                                                                <p class="mb-0" data-dz-size></p>
-                                                                                            </div>
-                                                                                            <div class="col-auto">
-
-                                                                                                <a href="" class="btn btn-link btn-lg text-muted" data-dz-remove>
-                                                                                                    <i class="dripicons-cross"></i>
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div> -->
                                                                         </div>
                                                                     </div>
-                                                <!-- <div class="row">
-                                                    <h4 class="mt-0"></h4> -->
-                                                    <!-- <div class="col-lg-12"> -->
-                                                    <!-- <p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p> -->
-                                                    <!-- <button type="button" class="btn btn-danger " data-bs-dismiss="modal">Importer</button> -->
-                                                <!-- </div> -->
-                                            <!-- </div> -->
-                                            <br>
+                                               
+                                                            <br>
                                            
                                             </div>
                                         </div><!-- /.modal-content -->
@@ -430,6 +413,13 @@
 
                   </div>
 
+
+                  <div id="Eff_can_wilaya"></div>
+                  <div id="tr_s_g"></div>
+                  <div id="tr_s_c"></div>
+                  <div id="r_e_p_p"></div>
+                  <div id="eff_m_i_lmd"></div>
+      
                     </div>
 
                   </div>
@@ -566,58 +556,57 @@
         <script src="{% static 'assets/js/vendor.min.js' %}"></script>
         <script src="{% static 'assets/js/app.min.js' %}"></script>
 
-<script>
-    const radioButtons = document.getElementsByName("customRadio4");
-    const myDiv = document.getElementById("year_select");
-    const mySpan = document.getElementById("sortants_option").querySelector("span");
-    radioButtons.forEach((radio) => {
-    radio.addEventListener("change", (event) => {
-    const selectedOption = document.querySelector('input[name="customRadio4"]:checked').value;
-    window.g_y=selectedOption;
-    myDiv.innerHTML =selectedOption;
-
-    mySpan.textContent = selectedOption;
-  });
-});
 
 
-const radioButton = document.getElementsByName("customRadio");
-    const myDi = document.getElementById("year_select2");
 
-radioButton.forEach((radio) => {
-  radio.addEventListener("change", (event) => {
-    const selectedOptio = document.querySelector('input[name="customRadio"]:checked').value;
-    console.log(selectedOptio);
-    myDi.innerHTML =selectedOptio;
 
-  });
-});
-</script>
+
 
 <script>
+    var etudiat_data = JSON.parse('{{ etudiat_data_json|escapejs }}');
+    
+    // You can now access the etudiat_data object in your JavaScript code
 
-    const XLSX = require('xlsx');
+   
+    $("#my-select").on("change", function () {
 
-    document.getElementById("fileInput").addEventListener('change', function(event) {
-        var file = fileInput.files[0];
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          var data = new Uint8Array(reader.result);
-          var workbook = XLSX.read(data, {type: 'array'});
-          var sheet = workbook.Sheets[workbook.SheetNames[0]];
-          dataJSON = XLSX.utils.sheet_to_json(sheet);
-          // let people = [dataJSON];
-          const inputElement = document.getElementById("fileInput");
-          const fileName = inputElement.files[0].name;
-          console.log(fileName);
+        const selectedOptions = $(this).val();
 
+        window.ahm = selectedOptions;
+        ah();
+        
+    });
 
+    
+   
+    const radioButto = document.getElementsByName("customRadio2");
+    const myD = document.getElementById("year_select2");
+    window.aff_year=radioButto.value;
+    radioButto.forEach((radio) => {
+        radio.addEventListener("change", (event) => {
+            const aff_year = document.querySelector('input[name="customRadio2"]:checked').value;
+            
+            window.aff_year=aff_year;
+            myD.innerHTML = aff_year;
+            ah();
 
-        };
-        reader.readAsArrayBuffer(file);
-      });
+        });
+    });
 
+    
+        const radioButton = document.getElementsByName("customRadio");
+        const myDi = document.getElementById("year_select");
 
-</script>
+        radioButton.forEach((radio) => {
+            radio.addEventListener("change", (event) => {
+                const selectedOptio = document.querySelector('input[name="customRadio"]:checked').value;
+                console.log(selectedOptio);
+                myDi.innerHTML = selectedOptio;
+
+            });
+        });
+  </script>
+  <script src="{% static 'assets/js/pages/tbl.js' %}"></script>
+  {% comment %} <script src="assets/js/pages/tbl.js" ></script> {% endcomment %}
     </body>
 </html>
