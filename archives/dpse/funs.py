@@ -105,8 +105,7 @@ def sort(sheet_df, year, code):
                 continue
             domaine_specilise = row[0]
             nb1 = row[1]
-            nb2 = row[2]
-            sort_obj2 = sort2(domaine_specilise=domaine_specilise, nb1=nb1,nb2=nb2)
+            sort_obj2 = sort2(annee_scolaire=year,domaine_specilise=domaine_specilise, nb1=nb1)
             sort_obj2.save()
     else:
         raise ValueError(f"Unknown sheet type: {code}")
